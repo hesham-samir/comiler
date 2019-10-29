@@ -1,0 +1,5 @@
+X, IDENTIFIER
+=, EQUAL
+x, IDENTIFIER
+-, MINUS
+Invalid Number, Error
