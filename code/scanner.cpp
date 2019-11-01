@@ -59,20 +59,6 @@ void scan(string file_location)
                             token_char.set_type();
                             token_vector.push_back(token_char);
                             int flag = 0;
-                            if (text[i] == '(') {
-                                for (unsigned int j = i + 1; j < text.find(')'); j++) {
-                                    if ((text[j] == NULL) || (text[j] == ' ')) {
-                                        flag = 0;
-                                    }
-                                    else {
-                                        flag = 1;
-                                    }
-                                }
-                                if (flag == 0) {
-                                    token_char.set_token("Empty brackets", "Error");
-                                    token_vector.push_back(token_char);
-                                }
-                            }
                         }
                     }
                     break;
