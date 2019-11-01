@@ -213,9 +213,6 @@ void Token::set_type()
     else if (this->value == "<") {
         this->type = "SMALLER THAN";
     }
-    else if (this->value == ">") {
-        this->type = "GREATER THAN";
-    }
     else if (this->value == ";") {
         this->type = "SEMI";
     }
@@ -230,18 +227,6 @@ void Token::set_type()
     }
     else if (this->value == "]") {
         this->type = "CLOSE SQUARED BRACKET";
-    }
-    else if (this->value == "&") {
-        this->type = "AND";
-    }
-    else if (this->value == "|") {
-        this->type = "OR";
-    }
-    else if (this->value == "^") {
-        this->type = "EXCLUSIVE OR";
-    }
-    else if (this->value == "~") {
-        this->type = "NOT";
     }
     else {
         this->type = "IDENTIFIER";
