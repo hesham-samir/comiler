@@ -6,11 +6,13 @@ void vector_print(vector<Token> token_vector)
 
     ofstream output("./output_files/scanner_output.txt",fstream::out);
     for (unsigned int i = 0; i < token_vector.size(); i++) {
-        if (token_vector[i].get_type() != "Error") {
+        if (token_vector[i].get_type() != "Error" && token_vector[i].get_type() != "Break") {
             output << token_vector[i].value << ", " << token_vector[i].type << endl;
 
         }
-        else {
+		else if (token_vector[i].get_type() == "Break") {
+			return;
+		}else {
             output << token_vector[i].value << ", " << token_vector[i].type << endl;
             QMessageBox msgBox;
             msgBox.setText(QString::fromStdString(token_vector[i].value));
@@ -58,7 +60,6 @@ void scan(string file_location)
                             token_char.set_token(text[i]);
                             token_char.set_type();
                             token_vector.push_back(token_char);
-                            int flag = 0;
                         }
                     }
                     break;
@@ -112,8 +113,8 @@ void scan(string file_location)
                         i = text.find('}') + 1;
                     }
                     else {
-                        token_char.set_token("Incomplete comment", "Error");
-                        token_vector.push_back(token_char);
+						token_char.set_token("", "Break");
+						token_vector.push_back(token_char);
                     }
                     break;
                 case DONE:
